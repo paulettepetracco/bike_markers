@@ -55,4 +55,5 @@ let bikeMarker = L.marker([station.lat,station.lon])
 createMap(L.layerGroup(bikeMarkers));
 }
 
+
 d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json").then(createMarkers);
