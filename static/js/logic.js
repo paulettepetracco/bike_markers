@@ -5,7 +5,7 @@
 function createMap(bikeStations) {
 
   // Create the tile layer that will be the background of our map.
-let streetmap = L.titleLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+let streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
@@ -28,7 +28,7 @@ let map = L.map("map-id", {
 });
 
   // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
-l.control.layers(baseMaps, overlayMaps,{
+L.control.layers(baseMaps, overlayMaps,{
   collapsed: false
 }).addTo(map);
 }
@@ -46,7 +46,7 @@ for(let index = 0; index < stations.length; index++){
 
     // Add the marker to the bikeMarkers array.
 let bikeMarker = L.marker([station.lat,station.lon])
-  .bindpopup("<h3>" + station.name + "<h3><h3>Capacity: " + station.capacity + "</h3>");
+  .bindPopup("<h3>" + station.name + "<h3><h3>Capacity: " + station.capacity + "</h3>");
   // Create a layer group that's made from the bike markers array, and pass it to the createMap function.
   bikeMarkers.push(bikeMarker);
 }
